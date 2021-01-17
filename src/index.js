@@ -96,6 +96,8 @@
 
 const taskForm = document.querySelector('#create-task-form')
 const taskList = document.querySelector('#tasks')
+const newTaskDescription = document.querySelector("#new-task-description");
+
 
 
 taskForm.addEventListener('submit', function(e) {
@@ -106,8 +108,10 @@ taskForm.addEventListener('submit', function(e) {
     //debugger
     // console.log(e.target)
     // const taskData = e.target.value
-    const newTaskDescription = document.getElementById("new-task-description");
+
     newTask.textContent = newTaskDescription.value
+
+    newTask.dataset.description = "task"
 
     taskList.append(newTask)
 
