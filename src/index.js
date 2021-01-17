@@ -38,84 +38,45 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{/* <form id="form">
-  <label>Test field: <input type="text"></label>
-  <br><br>
-  <button type="submit">Submit form</button>
-</form>
-<p id="log"></p> */}
-
-// function logSubmit(event) {
-//     log.textContent = `Form Submitted! Time stamp: ${event.timeStamp}`;
-//     event.preventDefault();
-//   }
-  
-//   const form = document.getElementById('form');
-//   const log = document.getElementById('log');
-//   form.addEventListener('submit', logSubmit);
-
-
-const taskForm = document.querySelector('#create-task-form')
+const entireForm = document.querySelector('#create-task-form')
+const taskDescription = document.querySelector('#new-task-description')
 const taskList = document.querySelector('#tasks')
-const newTaskDescription = document.querySelector("#new-task-description");
 
 
 
-taskForm.addEventListener('submit', function(e) {
-    e.preventDefault()
+entireForm.addEventListener('submit', function(e) {
+  e.preventDefault()
+  
+  let newLI = document.createElement('li')
+  let newButton = document.createElement('button')
 
-    let newTask = document.createElement('li')
-    newTask.classList.add('newest')
-    //debugger
-    // console.log(e.target)
-    // const taskData = e.target.value
 
-    newTask.textContent = newTaskDescription.value
+  newLI.innerText = taskDescription.value + "       "
+  newButton.innerText = "X"
 
-    newTask.dataset.description = "task"
+  newLI.append(newButton)
 
-    taskList.append(newTask)
+  taskList.append(newLI)
 
-    e.target.reset()
+  
+
+  e.target.reset()
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
